@@ -6,7 +6,6 @@ public class Main {
         tf.setVisible(true);
 
 
-
             for(;;) {
                 try {
                     Thread.sleep(200);
@@ -16,6 +15,7 @@ public class Main {
 
                 tf.repaint();  //隔一段时间重绘一次TankFrame  这样能够重新
             }
+
 
 
         }
