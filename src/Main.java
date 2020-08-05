@@ -3,6 +3,7 @@ import java.awt.*;
 public class Main {
     public static void main(String[] args) {
         TankFrame tf=new TankFrame();
+        TankFrame enemy=new TankFrame();
         tf.setVisible(true);
 
 
