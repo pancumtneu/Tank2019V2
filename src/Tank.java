@@ -5,7 +5,7 @@ public class Tank {
     private int x,y;
     private Dir dir;
     public static final int SPEED=5;
-    private boolean bL,bU,bR,bD;
+    private boolean bL,bU,bR,bD;//boolean默认是false
 
     public Tank(int x, int y, Dir dir) {
         this.x = x;
@@ -25,22 +25,46 @@ public class Tank {
         switch (key)
         {
             case KeyEvent.VK_A:
-                dir=Dir.L;
+                    bL=true;
                 break;
                  case KeyEvent.VK_W:
-                dir=Dir.U;
+                     bU=true;
                 break;
                  case KeyEvent.VK_D:
-                dir=Dir.R;
+                     bR=true;
                 break;
                  case KeyEvent.VK_S:
-                dir=Dir.D;
+                     bD=true;
                 break;
 
         }
+        setDir();
 
     }
 
+    private void setDir() {
+        if (bL&&!bD&&!bR&&!bU)
+        {
+            dir=Dir.L;
+        }
+        if (!bL&&bD&&!bR&&!bU)
+        {
+            dir=Dir.D;
+        }
+        if (!bL&&!bD&&bR&&!bU)
+        {
+            dir=Dir.R;
+        }
+        if (!bL&&!bD&&!bR&&bU)
+        {
+            dir=Dir.U;
+        }
+        if (!bL&&!bD&&!bR&&!bU)
+        {
+            dir=Dir.STOP;
+        }
+
+    }
 
 
 
@@ -59,6 +83,10 @@ public class Tank {
             case D:
                 y+=SPEED;
                 break;
+            case STOP:
+
+
+                break;
             default:
 
                 break;
@@ -71,18 +99,19 @@ public class Tank {
         switch (key)
         {
             case KeyEvent.VK_A:
-                dir=Dir.L;
+                bL=false;
                 break;
             case KeyEvent.VK_W:
-                dir=Dir.U;
+                bU=false;
                 break;
             case KeyEvent.VK_D:
-                dir=Dir.R;
+                bR=false;
                 break;
             case KeyEvent.VK_S:
-                dir=Dir.D;
+                bD=false;
                 break;
 
         }
+        setDir();
     }
 }

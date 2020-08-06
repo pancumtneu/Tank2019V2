@@ -14,7 +14,7 @@ public class TankFrame extends Frame {
         this.setLocation(400,100);
         this.setSize(800,600);
         this.addKeyListener(new TankKeyListener());
-        mytank=new Tank(100,100,Dir.R);
+        mytank=new Tank(100,100,Dir.STOP);
         enemy=new Tank(200,200,Dir.D);
 
 
